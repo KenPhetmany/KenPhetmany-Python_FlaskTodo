@@ -1,4 +1,23 @@
-{% extends 'base.html'&}
+{% extends 'base.html'%}
 
 {% block content%}
 <h1>{%block title%} Edit "{{post['title']}}" {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" placeholder="Post Title"
+                class="form-control" value="{{ request.form['title'] or post['title']}}">
+        </input>
+    <div class="form-group">
+        <label for="contet">Content</label>
+        <textarea name="content" placeholder="Post Content" class="form-control">
+            {{request.form['contnet'] or post['content']}}
+        </textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </div>
+</form>
+{% endblock %}
